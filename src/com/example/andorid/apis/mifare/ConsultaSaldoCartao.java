@@ -1,20 +1,13 @@
 package com.example.andorid.apis.mifare;
 
-import java.text.NumberFormat;
-import java.util.Locale;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.HttpParams;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.TextView;
-import android.widget.Toast;
+import org.json.JSONObject;
+
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class ConsultaSaldoCartao extends AsyncTask<Object, Object, String> {
 	
@@ -39,12 +32,8 @@ public class ConsultaSaldoCartao extends AsyncTask<Object, Object, String> {
     protected String doInBackground(Object... params) {
     	String saldo = "";
     	try {
-            DefaultHttpClient httpClient = new DefaultHttpClient();
-            HttpGet get = new HttpGet("http://10.5.34.246/server/cartao/saldo/" + numeroChipCartao);
-            get.setHeader("Accept", "application/json");
-            get.setHeader("Content-type", "application/json");
-            HttpResponse response = httpClient.execute(get);
-            String jsonDeResposta = EntityUtils.toString(response.getEntity());
+            String jsonDeResposta = new WebClient("http://10.5.34.246/server/cartao/saldo/" + numeroChipCartao).get();
+
             JSONObject jsonObject = new JSONObject(jsonDeResposta);
             double saldoCartao = (Double) jsonObject.get("saldo");
             
