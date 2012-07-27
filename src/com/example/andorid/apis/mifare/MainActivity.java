@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import com.example.andorid.apis.mifare.task.ConsultaSaldoCartaoTask;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -108,8 +109,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 	
 	public void consultarSaldoWebService(TextView block_0_Data2, String numeroChip) {
-        ConsultaSaldoCartao consultaSaldoCartao = new ConsultaSaldoCartao(this, block_0_Data2, numeroChip);
-		consultaSaldoCartao.execute();
+        ConsultaSaldoCartaoTask consultaSaldoCartaoTask = new ConsultaSaldoCartaoTask(this, block_0_Data2, numeroChip);
+		consultaSaldoCartaoTask.execute();
 	}
 
 	void resolveIntent(Intent intent) {
