@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 import com.example.andorid.apis.mifare.task.ConsultaSaldoCartaoTask;
+import com.example.andorid.apis.mifare.util.HexaConverter;
 import com.example.andorid.apis.mifare.util.NumberUtil;
 
 import java.io.IOException;
@@ -31,12 +32,6 @@ public class MainActivity extends Activity implements OnClickListener {
 	private static PendingIntent mPendingIntent;
 	private static IntentFilter[] mFilters;
 	private static String[][] mTechLists;
-
-	// Hex help
-	private static final byte[] HEX_CHAR_TABLE = { (byte) '0', (byte) '1',
-			(byte) '2', (byte) '3', (byte) '4', (byte) '5', (byte) '6',
-			(byte) '7', (byte) '8', (byte) '9', (byte) 'A', (byte) 'B',
-			(byte) 'C', (byte) 'D', (byte) 'E', (byte) 'F' };
 
 	private static final int AUTH = 1;
 	private static final int EMPTY_BLOCK_0 = 2;
@@ -108,7 +103,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			try {
 				mfc.connect();
 				uid = intent.getByteArrayExtra(NfcAdapter.EXTRA_ID);
-				String uidHex = getHexString(uid, uid.length);
+				String uidHex = HexaConverter.getHexString(uid, uid.length);
 				long numeroChipCartao = NumberUtil.bigToLittleEndian(uid);
 				this.numeroCartao.setText(Long.toString(numeroChipCartao));
 				consultarSaldoWebService(saldoCartao, Long.toString(numeroChipCartao));
@@ -151,14 +146,6 @@ public class MainActivity extends Activity implements OnClickListener {
 		alertbox.show();
 
 	}
-	
-	public static String fromHexString(String hex) {
-	    StringBuilder str = new StringBuilder();
-	    for (int i = 0; i < hex.length(); i+=2) {
-	        str.append((char) Integer.parseInt(hex.substring(i, i + 2), 16));
-	    }
-	    return str.toString();
-	}
 
 	public void onClick(View v) {
 		clearFields();
@@ -167,24 +154,6 @@ public class MainActivity extends Activity implements OnClickListener {
 	private static void clearFields() {
 		numeroCartao.setText("");
 		saldoCartao.setText("");
-	}
-
-	public static String getHexString(byte[] raw, int len) {
-		byte[] hex = new byte[2 * len];
-		int index = 0;
-		int pos = 0;
-
-		for (byte b : raw) {
-			if (pos >= len)
-				break;
-
-			pos++;
-			int v = b & 0xFF;
-			hex[index++] = HEX_CHAR_TABLE[v >>> 4];
-			hex[index++] = HEX_CHAR_TABLE[v & 0xF];
-		}
-
-		return new String(hex);
 	}
 
 	@Override
