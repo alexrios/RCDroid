@@ -17,10 +17,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 import com.example.andorid.apis.mifare.task.ConsultaSaldoCartaoTask;
+import com.example.andorid.apis.mifare.util.NumberUtil;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
 
 public class MainActivity extends Activity implements OnClickListener {
 	// UI Elements
@@ -110,7 +109,7 @@ public class MainActivity extends Activity implements OnClickListener {
 				mfc.connect();
 				uid = intent.getByteArrayExtra(NfcAdapter.EXTRA_ID);
 				String uidHex = getHexString(uid, uid.length);
-				long numeroChipCartao = bigToLittleEndian(uid);
+				long numeroChipCartao = NumberUtil.bigToLittleEndian(uid);
 				this.numeroCartao.setText(Long.toString(numeroChipCartao));
 				consultarSaldoWebService(saldoCartao, Long.toString(numeroChipCartao));
 			
@@ -159,16 +158,6 @@ public class MainActivity extends Activity implements OnClickListener {
 	        str.append((char) Integer.parseInt(hex.substring(i, i + 2), 16));
 	    }
 	    return str.toString();
-	}
-	
-	public static long bigToLittleEndian(byte[] bt) {  
-	    ByteBuffer buf = ByteBuffer.allocate(8);  
-	    
-	    buf.order(ByteOrder.BIG_ENDIAN);  
-	    buf.put(bt);  
-	   
-	    buf.order(ByteOrder.LITTLE_ENDIAN);  
-	    return buf.getLong(0);  
 	}
 
 	public void onClick(View v) {

@@ -1,5 +1,7 @@
 package com.example.andorid.apis.mifare.util;
 
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -12,5 +14,16 @@ public final class NumberUtil {
 		formataValor.setMinimumFractionDigits(2);
         return "R$ " + formataValor.format(value);
     }
+
+    public static long bigToLittleEndian(byte[] bytes) {
+   	    ByteBuffer buf = ByteBuffer.allocate(8);
+
+   	    buf.order(ByteOrder.BIG_ENDIAN);
+   	    buf.put(bytes);
+
+   	    buf.order(ByteOrder.LITTLE_ENDIAN);
+   	    return buf.getLong(0);
+   	}
+
 
 }
