@@ -26,19 +26,18 @@ public class MainActivity extends Activity implements OnClickListener {
 	// UI Elements
 	private static TextView numeroCartao;
 	private static TextView saldoCartao;
+
 	// NFC parts
 	private static NfcAdapter mAdapter;
 	private static PendingIntent mPendingIntent;
 	private static IntentFilter[] mFilters;
 	private static String[][] mTechLists;
+
 	// Hex help
 	private static final byte[] HEX_CHAR_TABLE = { (byte) '0', (byte) '1',
 			(byte) '2', (byte) '3', (byte) '4', (byte) '5', (byte) '6',
 			(byte) '7', (byte) '8', (byte) '9', (byte) 'A', (byte) 'B',
 			(byte) 'C', (byte) 'D', (byte) 'E', (byte) 'F' };
-	// Just for alerts
-	
-	private static final char[] HEX_CHARS = "0123456789abcdef".toCharArray();
 
 	private static final int AUTH = 1;
 	private static final int EMPTY_BLOCK_0 = 2;
@@ -46,21 +45,6 @@ public class MainActivity extends Activity implements OnClickListener {
 	private static final int NETWORK = 4;
 	private static final String TAG = "purchtagscanact";
 	
-	private static final String namespace = "http://10.5.34.246/";
-	private static final String name = "consultaSaldo";
-	private static final String URL = "http://10.5.34.256/ws";
-	private static final String ACTION = "http://10.5.34.256/ws/consultaSaldo";
-	
-	private String saldo;
-
-	public String getSaldo() {
-		return saldo;
-	}
-
-	public void setSaldo(String saldo) {
-		this.saldo = saldo;
-	}
-
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
