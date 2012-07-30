@@ -11,11 +11,9 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
-import org.ksoap2.serialization.PropertyInfo;
-import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpTransportSE;
 
+
+import android.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
@@ -84,14 +82,6 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		numeroCartao.setTextColor(Color.BLACK);
 		saldoCartao.setTextColor(Color.BLACK);
-
-		// Capture Purchase button from layout
-		//Button scanBut = (Button) findViewById(R.id.clear_but);
-		// Register the onClick listener with the implementation above
-		//scanBut.setOnClickListener(this);
-
-		// Register the onClick listener with the implementation above
-		//scanBut.setOnClickListener(this);
 
 		mAdapter = NfcAdapter.getDefaultAdapter(this);
 		// Create a generic PendingIntent that will be deliver to this activity.

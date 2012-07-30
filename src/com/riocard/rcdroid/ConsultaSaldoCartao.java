@@ -1,4 +1,4 @@
-package com.example.andorid.apis.mifare;
+package com.riocard.rcdroid;
 
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -33,14 +33,14 @@ public class ConsultaSaldoCartao extends AsyncTask<Object, Object, String> {
     }
 
     protected void onPreExecute() {
-        progress = ProgressDialog.show(context, "Aguarde...", "Envio de dados para a web", true, true);
+        progress = ProgressDialog.show(context, "Aguarde...", "Consultando dados", true, true);
     }
 
     protected String doInBackground(Object... params) {
     	String saldo = "";
     	try {
             DefaultHttpClient httpClient = new DefaultHttpClient();
-            HttpGet get = new HttpGet("http://10.5.34.246/server/cartao/saldo/" + numeroChipCartao);
+            HttpGet get = new HttpGet("http://10.5.44.62/android-server/cartao/saldo/" + numeroChipCartao);
             get.setHeader("Accept", "application/json");
             get.setHeader("Content-type", "application/json");
             HttpResponse response = httpClient.execute(get);

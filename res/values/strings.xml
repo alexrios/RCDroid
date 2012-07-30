@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="title">MiFare Tag Detection</string>
-    <string name="app_name">Reading Example</string>
+    <string name="app_name">Riocard</string>
 </resources>
