@@ -1,4 +1,4 @@
-package com.example.andorid.apis.mifare;
+package com.riocard.rcdroid;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -15,8 +15,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
-import com.example.andorid.apis.mifare.task.ConsultaSaldoCartaoTask;
-import com.example.andorid.apis.mifare.util.NumberUtil;
+import com.riocard.rcdroid.task.ConsultaSaldoCartaoTask;
+import com.riocard.rcdroid.util.NumberUtil;
 
 import java.io.IOException;
 

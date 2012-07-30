@@ -1,63 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="horizontal"
-    android:background="@drawable/fundo"
-    android:gravity="center">
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/R"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <TableLayout
-        android:id="@+id/conteudo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:stretchColumns="*"
-        android:background="#ff0000">
+    <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/layout"/>
 
-        <TableRow>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_weight="1"
-                android:paddingRight="5dp"
-                android:text="Nº Cartão :"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"
-            />
+    <TextView
+            android:id="@+id/numeroCartao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="60dp"
+            android:layout_y="198dp"
+            android:textColor="@android:color/white"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-            <TextView
-                android:id="@+id/numeroCartao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="@android:color/black"
-            />
 
-        </TableRow>
-        <TableRow>
+    <TextView
+            android:id="@+id/saldo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="60dp"
+            android:layout_y="303dp"
+            android:textColor="@android:color/white"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_weight="1"
-                android:paddingRight="5dp"
-                android:text="Saldo :"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"
-            />
-
-            <TextView
-                android:id="@+id/saldo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="@android:color/black"
-            />
-
-        </TableRow>
-
-    </TableLayout>
-
-</LinearLayout>
+</AbsoluteLayout>

@@ -1,12 +1,12 @@
-package com.example.andorid.apis.mifare.task;
+package com.riocard.rcdroid.task;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.TextView;
-import com.example.andorid.apis.mifare.WebClient;
-import com.example.andorid.apis.mifare.util.NumberUtil;
+import com.riocard.rcdroid.util.WebClient;
+import com.riocard.rcdroid.util.NumberUtil;
 import org.json.JSONObject;
 
 public class ConsultaSaldoCartaoTask extends AsyncTask<Object, Object, String> {
@@ -30,7 +30,7 @@ public class ConsultaSaldoCartaoTask extends AsyncTask<Object, Object, String> {
     protected String doInBackground(Object... params) {
     	String saldo = "";
     	try {
-            String jsonDeResposta = new WebClient("http://10.5.34.246/server/cartao/saldo/" + numeroChipCartao).get();
+            String jsonDeResposta = new WebClient("http://10.5.44.62/android-server/cartao/saldo/" + numeroChipCartao).get();
             saldo = NumberUtil.formatBrazilianCurrency(new JSONObject(jsonDeResposta).getDouble("saldo"));
         } catch (Exception e) {
             Log.e("ConsultaSaldoCartaoTask", e.getMessage(), e);

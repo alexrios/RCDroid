@@ -1,4 +1,4 @@
-package com.example.andorid.apis.mifare.util;
+package com.riocard.rcdroid.util;
 
 public final class HexaConverter {
 

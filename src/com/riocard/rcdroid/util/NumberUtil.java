@@ -1,4 +1,4 @@
-package com.example.andorid.apis.mifare.util;
+package com.riocard.rcdroid.util;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
