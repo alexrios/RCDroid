@@ -1,4 +1,4 @@
-package com.example.andorid.apis.mifare;
+package com.riocard.rcdroid;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -13,7 +13,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
 
-import android.R;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
@@ -80,8 +80,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		numeroCartao = (TextView) findViewById(R.id.numeroCartao);
 		saldoCartao = (TextView) findViewById(R.id.saldo);
 		
-		numeroCartao.setTextColor(Color.BLACK);
-		saldoCartao.setTextColor(Color.BLACK);
+		numeroCartao.setTextColor(Color.WHITE);
+		saldoCartao.setTextColor(Color.WHITE);
 
 		mAdapter = NfcAdapter.getDefaultAdapter(this);
 		// Create a generic PendingIntent that will be deliver to this activity.
