@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <style name="AppTheme" parent="android:Theme.Light.NoTitleBar.Fullscreen" />
-    
+    <style name="texto">
+        <item name="paddingTop">5dp</item>
+        <item name="paddingBottom">5dp</item>
+        <item name="textColor">@android:color/white</item>
+        <item name="textSize">20dp</item>
+        <item name="textStyle">bold</item>
+    </style>
 </resources>
