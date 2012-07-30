@@ -2,10 +2,10 @@
 <resources>
     <style name="AppTheme" parent="android:Theme.Light.NoTitleBar.Fullscreen" />
     <style name="texto">
-        <item name="paddingTop">5dp</item>
-        <item name="paddingBottom">5dp</item>
-        <item name="textColor">@android:color/white</item>
-        <item name="textSize">20dp</item>
-        <item name="textStyle">bold</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>
